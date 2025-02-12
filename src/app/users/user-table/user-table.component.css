@@ -1,0 +1,14 @@
+table{
+    width:75vw;
+    border:1px solid black;
+}
+/* relative units
+https://www.w3schools.com/cssref/css_units.php */
+table tr, table td, table th{
+    border:1px solid black;
+}
+.deleteBtn{
+    text-align: center;
+    background-color: rgb(193, 193, 193);
+    cursor: pointer;
+}
