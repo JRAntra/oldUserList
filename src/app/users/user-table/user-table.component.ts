@@ -6,24 +6,16 @@ import { UserInfo } from '../userInfo.interface';
   selector: 'app-user-table',
   standalone: false,
   templateUrl: './user-table.component.html',
-  styleUrl: './user-table.component.css'
+  styleUrl: './user-table.component.css',
 })
-export class UserTableComponent implements OnInit{
-
+export class UserTableComponent implements OnInit {
   // Component Lifecycle
   // https://v17.angular.io/guide/lifecycle-hooks
-  constructor(private userService: UserService){
+  constructor(private userService: UserService) {}
 
-  }
-
-  userList : UserInfo[] = []
+  userList: UserInfo[] = [];
   ngOnInit(): void {
-    this.userList = this.userService.userDataList
+    this.userList = this.userService.userDataList;
   }
-  deleteRow(name:string){
-
-  }
-
-
-
+  deleteRow(name: string) {}
 }

@@ -1,35 +1,45 @@
-<div class="userform">
-    <div class="userform-row">
-        <div class="userform-input_short">
-            <label for="name">Legal Name</label>
-            <input name="name" class="input_short" [formControl]="name">
-            <!-- <p *ngIf="name.errors?.['required']">Legal Name is Required</p> -->
+<form [formGroup]="form" class="userform">
+  <div class="userform-row">
+    <div class="userform-input_short">
+      <label for="name">Legal Name</label>
+      <input id="name" class="input_short" formControlName="name" />
+      <!-- <p *ngIf="name.errors?.['required']">Legal Name is Required</p> -->
+    </div>
+    <div class="userform-input_short">
+      <label for="username">Role</label>
+      <input name="username" class="input_short" formControlName="username" />
+    </div>
+    <div class="userform-input_short">
+      <label for="phone">phone</label>
+      <input name="phone" class="input_short" formControlName="phone" />
+    </div>
+  </div>
+  <div class="userform-row">
+    <div class="userform-input_medium">
+      <div>
+        <label for="website">Website</label>
+        <input name="website" class="input_long" formControlName="website" />
+      </div>
+    </div>
+    <div>
+      <div class="userform-input_short">
+        <label for="email">Email</label>
+        <input name="email" class="input_short" formControlName="email" />
+      </div>
+    </div>
+  </div>
 
-        </div>
-        <div class="userform-input_short">
-            <label for="age">Age</label>
-            <input name="age" class="input_short" [formControl]="age">
-        </div>
-        <div class="userform-input_short">
-            <label for="role">Role</label>
-            <input name="role" class="input_short" [formControl]="role">
-        </div>
+  <div formGroupName="address">
+    <input placeholder="street" formControlName="street" />
+    <input placeholder="suite" formControlName="suite" />
+    <input placeholder="city" formControlName="city" />
+    <input placeholder="zipcode" formControlName="zipcode" />
+    <div formGroupName="geo">
+      <input placeholder="lat" formControlName="lat" />
+      <input placeholder="lng" formControlName="lng" />
     </div>
-    <div class="userform-row">
-        <div class="userform-input_medium">
-            <div>
-                <label for="address">Address</label>
-                <input name="address" class="input_long" [formControl]="address">
-            </div>
-        </div>
-        <div>
-            <div class="userform-input_short">
-                <label for="email">Email</label>
-                <input name="email" class="input_short" [formControl]="email">
-            </div>
-        </div>
-    </div>
-    <div class="userform_row-center">
-        <button (click)="addNewUser()">Add New User</button>
-    </div>
-</div>
+  </div>
+  <div class="userform_row-center">
+    <button (click)="addNewUser()">Add New User</button>
+  </div>
+</form>
