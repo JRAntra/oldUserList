@@ -1,20 +1,22 @@
 <table>
-    <tr>
+  <tr>
     <th>Legal Name</th>
-    <th>Age</th>
-    <th>Role</th>
+    <th>username</th>
+    <th>phone</th>
     <th>Address</th>
+    <!-- <th>Address street</th> -->
     <th>Email</th>
     <th>Action</th>
-    </tr>
-    <tr *ngFor="let item of userList">
-            <td>{{item.name}}</td>
-            <td>{{item.age}}</td>
-            <td>{{item.role}}</td>
-            <td>{{item.address}}</td>
-            <td>{{item.email}}</td>
-            <td (click)="deleteRow(item.name)" class="deleteBtn">delete</td>
-    </tr>
+  </tr>
+  <tr *ngFor="let item of userList">
+    <td>{{ item.name }}</td>
+    <td>{{ item.username }}</td>
+    <td>{{ item.phone }}</td>
+    <td>{{ item.address?.city }} - {{ item.address?.street }}</td>
+    <!-- <td>{{ item.address.street }}</td> -->
+    <td>{{ item.email }}</td>
+    <td (click)="deleteRow(item['id'])" class="deleteBtn">delete</td>
+  </tr>
 </table>
-<br>
+<br />
 <!-- <div>The filter keyword is {{keyword ? keyword : "nothing"}}</div> -->
