@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import { User, UserInfo } from '../userInfo.interface';
+import { UserService } from '../../../services/user.service';
+import { User, UserInfo } from '../../../services/userInfo.interface';
 import { Subscription } from 'rxjs';
 
 @Component({

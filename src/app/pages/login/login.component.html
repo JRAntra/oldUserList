@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <div class="label_container">
+      <label for="email"> email: </label>
+    </div>
+    <input id="email" type="text" formControlName="email" />
+  </div>
+  <hr />
+  <div>
+    <div class="label_container">
+      <label for="password"> password: </label>
+    </div>
+    <input id="password" type="text" formControlName="password" />
+  </div>
+
+  <hr />
+  <div class="label_container"></div>
+  <button>Submit</button>
+</form>

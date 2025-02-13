@@ -1,0 +1,9 @@
+.label_container {
+  width: 10%;
+  display: inline-block;
+  text-align: right;
+}
+input,
+button {
+  margin-left: 1rem;
+}
