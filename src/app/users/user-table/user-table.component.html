@@ -1,17 +1,17 @@
 <table>
   <tr>
     <th>Legal Name</th>
-    <th>Age</th>
-    <th>Role</th>
+    <th>phone</th>
+    <th>username</th>
     <th>Address</th>
     <th>Email</th>
     <th>Action</th>
   </tr>
   <tr *ngFor="let item of userList">
     <td>{{ item.name }}</td>
-    <td>{{ item.age }}</td>
-    <td>{{ item.role }}</td>
-    <td>{{ item.address }}</td>
+    <td>{{ item.phone }}</td>
+    <td>{{ item.username }}</td>
+    <td>{{ item.address.city }}</td>
     <td>{{ item.email }}</td>
     <td (click)="deleteRow(item.name)" class="deleteBtn">delete</td>
   </tr>

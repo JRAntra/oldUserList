@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { UserInfo } from '../userInfo.interface';
+import { User, UserInfo } from '../userInfo.interface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-table',
@@ -9,13 +10,18 @@ import { UserInfo } from '../userInfo.interface';
   styleUrl: './user-table.component.css',
 })
 export class UserTableComponent implements OnInit {
-  // Component Lifecycle
-  // https://v17.angular.io/guide/lifecycle-hooks
+  userList: User[] = [];
+  sbp = new Subscription();
+
   constructor(private userService: UserService) {}
 
-  userList: UserInfo[] = [];
   ngOnInit(): void {
-    this.userList = this.userService.userDataList;
+    this.userService.users$.subscribe((users) => {
+      this.userList = users;
+    });
+    this.userService.getUsers().subscribe();
   }
-  deleteRow(name: string) {}
+  deleteRow(id: string) {
+    this.userService.deleteUser(+id).subscribe();
+  }
 }

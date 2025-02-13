@@ -3,10 +3,13 @@
     <div class="userform-input_short">
       <label for="name">Legal Name</label>
       <input id="name" class="input_short" formControlName="name" />
-      <!-- <p *ngIf="name.errors?.['required']">Legal Name is Required</p> -->
+
+      <div *ngIf="!name.valid && (name.dirty || name.touched)">
+        <p *ngIf="name.errors?.['required']">Legal Name is Required</p>
+      </div>
     </div>
     <div class="userform-input_short">
-      <label for="username">Role</label>
+      <label for="username">username</label>
       <input name="username" class="input_short" formControlName="username" />
     </div>
     <div class="userform-input_short">

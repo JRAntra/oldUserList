@@ -32,3 +32,5 @@ export interface Company {
   catchPhrase: string;
   bs: string;
 }
+
+export type RegisterUserDto = Omit<User, 'id'>;

@@ -1,37 +1,43 @@
-import { Injectable } from '@angular/core';
-import { UserInfo } from './userInfo.interface';
+import { inject, Injectable } from '@angular/core';
+import { RegisterUserDto, User, UserInfo } from './userInfo.interface';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor() {}
+  private http = inject(HttpClient);
+  private readonly baseUrl = 'https://jsonplaceholder.typicode.com';
+  private usersPath = 'users';
+  users$ = new BehaviorSubject<User[]>([]);
 
-  userDataList: UserInfo[] = [
-    {
-      name: 'JR',
-      age: '31',
-      role: 'trainer',
-      address: '21000 Atlantic Blvd STE. 300',
-      email: 'jr@antra.com',
-    },
-    {
-      name: 'Patrick',
-      age: '35',
-      role: 'manager',
-      address: '21000 Atlantic Blvd STE. 300',
-      email: 'patrick@antra.com',
-    },
-    {
-      name: 'Miranda',
-      age: '26',
-      role: 'trainer',
-      address: '21000 Atlantic Blvd STE. 300',
-      email: 'miranda@antra.com',
-    },
-  ];
+  // constructor(private http: HttpClient) {}
 
-  addNewUser(user: UserInfo) {
-    this.userDataList.push(user);
+  addUser(newuser: RegisterUserDto) {
+    return this.http
+      .post<User>([this.baseUrl, this.usersPath].join('/'), newuser)
+      .pipe(
+        tap((user: User) => {
+          this.users$.next([...this.users$.value, user]);
+        })
+      );
+  }
+
+  getUsers() {
+    return this.http.get<User[]>([this.baseUrl, this.usersPath].join('/')).pipe(
+      tap((users: User[]) => {
+        this.users$.next(users);
+      })
+    );
+  }
+
+  deleteUser(id: number) {
+    this.users$.next(
+      this.users$.value.filter((user: User) => {
+        return user.id !== id;
+      })
+    );
+    return this.http.delete([this.baseUrl, this.usersPath, id].join('/'));
   }
 }

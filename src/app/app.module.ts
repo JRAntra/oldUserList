@@ -5,18 +5,24 @@ import { AppComponent } from './app.component';
 import { InputFormComponent } from './users/input-form/input-form.component';
 import { UserTableComponent } from './users/user-table/user-table.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {
+  HttpClientModule,
+  provideHttpClient,
+  withFetch,
+} from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    InputFormComponent,
-    UserTableComponent
-  ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, InputFormComponent, UserTableComponent],
+  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule],
+  // providers: [provideHttpClient(withFetch())],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
+
+/* 
+
+ add form builder, finished vilidator, 
+
+ add httpclient, finished service,
+
+*/
