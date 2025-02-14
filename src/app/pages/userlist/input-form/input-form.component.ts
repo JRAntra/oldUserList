@@ -6,8 +6,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { UserInfo } from '../userInfo.interface';
-import { UserService } from '../user.service';
+import { UserInfo } from '../../../services/userInfo.interface';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-input-form',

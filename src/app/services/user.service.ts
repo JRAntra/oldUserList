@@ -1,7 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { partialUser, User, UserInfo } from './userInfo.interface';
+
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { partialUser, User } from './userInfo.interface';
 
 @Injectable({
   providedIn: 'root',

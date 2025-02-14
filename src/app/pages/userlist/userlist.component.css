@@ -1,0 +1,10 @@
+.container {
+  margin: 50px auto 0px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 75vw;
+  /* border:1px solid #000000 */
+  /* https://www.w3schools.com/cssref/css_units.php */
+}

@@ -1,6 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-import { partialUser, User, UserInfo } from '../userInfo.interface';
+import { UserService } from '../../../services/user.service';
+import {
+  partialUser,
+  User,
+  UserInfo,
+} from '../../../services/userInfo.interface';
 import { Subject, Subscription, takeUntil } from 'rxjs';
 
 @Component({
